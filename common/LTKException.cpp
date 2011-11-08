@@ -26,7 +26,7 @@
  * $Author: sharmnid $
  *
  ************************************************************************/
-
+//
 /************************************************************************
  * FILE DESCR: Implementation of LTKException class. The error messages are 
  *			   thrown embedded  in objects of this class
