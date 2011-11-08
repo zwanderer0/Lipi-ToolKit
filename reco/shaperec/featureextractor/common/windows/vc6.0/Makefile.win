@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: common
+common:
+	-@$(MSDEV) featureextractorcommon.dsp /MAKE "featureextractorcommon - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) featureextractorcommon.dsp /MAKE "featureextractorcommon - $(WIN32) $(RELOPT)" /$(CLEAN)

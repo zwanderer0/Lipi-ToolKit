@@ -1,0 +1,3 @@
+EXPORTS
+	createShapeRecognizer @1	
+	deleteShapeRecognizer @2

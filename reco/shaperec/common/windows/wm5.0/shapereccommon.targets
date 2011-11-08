@@ -1,0 +1,12 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="shapereccommon">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>         
+<Target Name="shapereccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\common\windows\wm5.0\shapereccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+</Project>

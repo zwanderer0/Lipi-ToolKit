@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all : lipiengine
+lipiengine:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) lipiengine.dsp /MAKE "lipiengine - $(WIN32) $(RELOPT)" /$(CLEAN)

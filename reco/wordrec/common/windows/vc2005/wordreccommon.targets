@@ -1,0 +1,12 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="wordreccommon">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>         
+<Target Name="wordreccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\wordrec\common\windows\vc2005\wordreccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+</Project>

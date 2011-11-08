@@ -1,0 +1,32 @@
+include $(LIPI_ROOT)/global.mk
+SRC=l7testing.cpp 
+
+H=$(SRC:.cpp=.h)
+OBJ=$(SRC:.cpp=.o)
+
+TARGET=l7testing
+
+INC= -I$(LIPITK_COMMON) \
+     -I$(LIPITK_SRC_UTILS_LIB) \
+     -I$(LIPITK_SRC_INCLUDE) \
+     -I$(LIPITK_SHAPEREC_FE_COMMON) \
+     -I$(LIPITK_SHAPEREC_FE_L7)
+
+LIB= -lcommon \
+     -lshaperecommon \
+	 -lutil \
+     -lfeatureextractorcommon 
+
+LIBDIR= $(LIPITK_STATIC_LIBDIR)
+#TARGETLIB= $(LIPITK_BIN)
+
+all: ${OBJ} ${SRC}
+	$(CC) $(CPPFLAGS) -L${LIBDIR} $(LINKLIB) -o ${TARGET} ${OBJ}  -L$(LIBDIR) $(LIB)
+
+clean:
+	-@$(REMOVE) *.o
+	-@$(REMOVE) ${TARGET}
+.cpp.o:${SRC} 
+	$(CC) ${INC} $(CFLAGS) $< -o $@
+
+

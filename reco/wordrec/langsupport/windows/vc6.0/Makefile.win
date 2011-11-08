@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: langsupport
+langsupport:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) langsupport.dsp /MAKE "langsupport - $(WIN32) $(RELOPT)" /$(CLEAN)

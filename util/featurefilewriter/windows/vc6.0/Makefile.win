@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: featurefilewriter
+featurefilewriter:
+     -@$(MSDEV) featurefilewriter.dsp /MAKE "featurefilewriter - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+     -@$(MSDEV) featurefilewriter.dsp /MAKE "featurefilewriter - $(WIN32) $(RELOPT)" /$(CLEAN)

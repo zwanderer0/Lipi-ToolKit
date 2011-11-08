@@ -1,0 +1,34 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="wordrectst"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+<ItemGroup>
+    <StaticLibs Include="common;utils;wordreccommon"/>
+</ItemGroup>
+<Target Name="wordrectst"
+        DependsOnTargets="@(StaticLibs)">
+    <VCBuild Projects="$(LIPI_ROOT)\src\apps\samples\wordrectst\windows\vc2005\wordrectst.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="common" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\common\windows\vc2005\common.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="utils" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\util\lib\windows\vc2005\utils.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="wordreccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\wordrec\common\windows\vc2005\wordreccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+</Project>

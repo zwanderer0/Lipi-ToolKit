@@ -1,0 +1,32 @@
+include $(LIPI_ROOT)/global.mk
+
+ORIGINALSRC=  \
+	shaperectst.cpp
+
+SRC=$(addprefix $(LIPITK_SAMPLES_SHAPERECTST)/, $(ORIGINALSRC))  
+
+H=$(SRC:.cpp=.h)
+
+OBJ=$(SRC:.cpp=.o)
+
+TARGET=shaperectst
+
+INC= -I$(LIPITK_SRC_UTILS_LIB) \
+     -I$(LIPITK_SRC_INCLUDE)
+
+LIB= -lutil \
+     -lcommon \
+     -lshaperecommon
+
+LIBDIR= $(LIPITK_STATIC_LIBDIR)
+
+all: ${OBJ} ${SRC}
+	$(CC) $(CPPFLAGS) -L${LIBDIR} $(LINKLIB) -o ${TARGET} ${OBJ}  -L$(LIBDIR) $(LIB)
+
+clean:
+	-@$(REMOVE) $(LIPITK_SAMPLES_SHAPERECTST)/*.o
+	-@$(REMOVE) ${TARGET}
+
+.cpp.o:${SRC}
+	$(CC) ${INC} $(CFLAGS) $< -o $@
+

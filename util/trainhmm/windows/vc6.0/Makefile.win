@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: trainhmm
+trainhmm:
+	-@$(MSDEV) $@.dsp /MAKE "trainhmm - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) trainhmm.dsp /MAKE "trainhmm - $(WIN32) $(RELOPT)" /$(CLEAN)

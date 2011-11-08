@@ -1,0 +1,113 @@
+!include $(LIPI_ROOT)\global.winmk
+all :shaperectst wordrectst
+
+################# shaperectst ################
+shaperectst: msg common utils shapereccommon
+	-$(CHDIR) $(LIPITK_APP_SAMPLES)
+	-$(CHDIR) shaperectst
+	-$(CHDIR) $(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS)  all
+	-$(CHDIR) ..
+	
+clean-shaperectst: msg clean-common clean-utils  clean-shapereccommon  
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	-$(CHDIR)	shaperectst
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE)$(F) Makefile.$(OS)  clean
+	-$(CHDIR) ..
+
+###############################################
+
+############# wordrectst ######################
+wordrectst: msg common utils wordreccommon
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	-$(CHDIR)	wordrectst
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS)  all
+	-$(CHDIR) ..
+
+
+clean-wordrectst:msg clean-common clean-wordreccommon clean-utils
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	-$(CHDIR)	wordrectst
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE)$(F) Makefile.$(OS)  clean
+	-$(CHDIR) ..
+
+################################################
+
+################ common	########################
+common:msg
+	-$(CHDIR)	$(LIPITK_COMMON)
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS)  $@
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+
+clean-common: msg
+	-$(CHDIR)	$(LIPITK_COMMON)
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE)	$(F) Makefile.$(OS)  $clean
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	
+#################################################
+
+################ utils	########################
+utils:msg
+	-$(CHDIR)	$(LIPITK_UTILS)
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE)	$(F) Makefile.$(OS) lib
+	-$(CHDIR)	$(LIPITK_RECO_SHAPEREC)
+
+clean-utils:msg
+	-$(CHDIR)	$(LIPITK_UTILS)
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS) clean-lib
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	
+#################################################
+
+
+#################Wordreccommon ################
+wordreccommon :msg
+	-$(CHDIR)	$(LIPITK_RECO_WORDREC)
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS) common
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+
+clean-wordreccommon :msg
+	-$(CHDIR)	$(LIPITK_RECO_WORDREC)
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS) clean-common
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+
+###############################################
+
+############### shapereccommon ################
+shapereccommon:
+	$(CHDIR)	$(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)	$(DSP_LOCATION)
+	$(MAKE)	$(F) Makefile.$(OS) common
+	$(CHDIR)	$(LIPITK_APP_SAMPLES)
+
+clean-shapereccommon:
+	$(CHDIR)	$(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)	$(DSP_LOCATION)
+	$(MAKE)		$(F) Makefile.$(OS) clean-common
+	$(CHDIR)	$(LIPITK_APP_SAMPLES)
+
+#############################################
+
+msg:
+	-@echo Information ...
+clean:
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	-$(CHDIR)	shaperectst
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS) clean
+	-$(CHDIR) ..
+	-$(CHDIR)	$(LIPITK_APP_SAMPLES)
+	-$(CHDIR)	wordrectst
+	-$(CHDIR)	$(DSP_LOCATION)
+	-$(MAKE) $(F) Makefile.$(OS) clean
+	-$(CHDIR) ..
+

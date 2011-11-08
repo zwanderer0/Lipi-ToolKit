@@ -1,0 +1,34 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="shaperectst"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+<ItemGroup>
+    <StaticLibs Include="common;utils;shapereccommon"/>
+</ItemGroup>
+<Target Name="shaperectst"
+        DependsOnTargets="@(StaticLibs)">
+    <VCBuild Projects="$(LIPI_ROOT)\src\apps\samples\shaperectst\windows\vc2005\shaperectst.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="common" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\common\windows\vc2005\common.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="utils" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\util\lib\windows\vc2005\utils.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="shapereccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\common\windows\vc2005\shapereccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+</Project>

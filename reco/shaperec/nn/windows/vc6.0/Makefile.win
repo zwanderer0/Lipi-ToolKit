@@ -1,0 +1,7 @@
+!include $(LIPI_ROOT)\global.winmk
+all: nn
+nn:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) nn.dsp /MAKE "nn - $(WIN32) $(RELOPT)" /$(CLEAN)
+

@@ -1,0 +1,150 @@
+!include $(LIPI_ROOT)\$(DSP_LOCATION)\global.winmk
+all :	common lipiengine reco util apps
+
+util: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  all
+	-@$(CHDIR) $(LIPITK_SRC)
+
+apps: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $@
+	-$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  all
+	-@$(CHDIR) $(LIPITK_SRC)
+
+#####################################################
+#
+#	COMMON MODULE
+#
+#####################################################
+common: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  all
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-common: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) common
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F)  Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+
+#####################################################
+#
+#	LIPIENGINE MODULE
+#
+#####################################################
+lipiengine: msg common utillib wordreccommon shapereccommon
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  all
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-lipiengine: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) lipiengine
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+
+utillib :
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) lib
+	-@$(CHDIR) $(LIPITK_SRC)
+
+#####################################################
+#
+#	RECO MODULE
+#
+#####################################################
+reco: msg
+	-@$(CHDIR) $(LIPITK_RECO)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  all
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-reco: msg
+	-@$(CHDIR) $(LIPITK_RECO)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+
+#####################################################
+#
+#	SHAPEREC COMMON MODULE
+#
+#####################################################
+shapereccommon :msg
+	-@$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) common
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-shapereccommon :msg
+	-@$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean-common
+	-@$(CHDIR) $(LIPITK_SRC)
+
+#####################################################
+#
+#	WORDREC COMMON MODULE
+#
+#####################################################
+wordreccommon :msg
+	-@$(CHDIR) $(LIPITK_RECO_WORDREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) common
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-wordreccommon :msg
+	-@$(CHDIR) $(LIPITK_RECO_WORDREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean-common
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-util: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) util
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+
+clean-apps: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) apps
+	-$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+
+msg:
+	-@echo  Information .. 
+clean:
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR)  util
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F)  Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR)  apps
+	-@$(MAKE) $(F)  Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR)  common
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F)  Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR)  reco
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F)  Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR)  lipiengine
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  clean
+	-@$(CHDIR) $(LIPITK_SRC)
+

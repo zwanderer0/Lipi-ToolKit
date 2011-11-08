@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="runshaperec;runwordrec">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+         <Import Project="$(LIPI_ROOT)\src\util\run\runshaperec\windows\vc2005\runshaperec.targets" />
+         <Import Project="$(LIPI_ROOT)\src\util\run\runwordrec\windows\vc2005\runwordrec.targets" />
+</Project>

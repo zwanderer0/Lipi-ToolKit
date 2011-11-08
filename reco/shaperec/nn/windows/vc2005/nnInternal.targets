@@ -1,0 +1,46 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="nnInternal"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+<ItemGroup>
+    <StaticLibs Include="common;utils;shapereccommon;featureextractorcommon;lipiengine"/>
+</ItemGroup>
+<Target Name="nnInternal" 
+        DependsOnTargets="@(StaticLibs)">
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\nn\windows\vc2005\nnInternal.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="common" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\common\windows\vc2005\common.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="utils" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\util\lib\windows\vc2005\utils.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="shapereccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\common\windows\vc2005\shapereccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="featureextractorcommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\featureextractor\common\windows\vc2005\featureextractorcommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+<Target Name="lipiengine" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\lipiengine\windows\vc2005\lipiengine.vcproj"
+             Rebuild="true"
+             Configuration="Release|win32">
+    </VCBuild>
+</Target>
+</Project>

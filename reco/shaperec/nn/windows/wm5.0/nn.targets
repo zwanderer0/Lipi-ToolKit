@@ -1,0 +1,40 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="nn"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+<ItemGroup>
+    <StaticLibs Include="common;utils;shapereccommon;featureextractorcommon"/>
+</ItemGroup>
+<Target Name="nn" 
+        DependsOnTargets="@(StaticLibs)">
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\nn\windows\wm5.0\nn.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="common" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\common\windows\wm5.0\common.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="utils" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\util\lib\windows\wm5.0\utils.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="shapereccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\common\windows\wm5.0\shapereccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="featureextractorcommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\featureextractor\common\windows\wm5.0\featureextractorcommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+</Project>

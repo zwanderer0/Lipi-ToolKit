@@ -1,0 +1,7 @@
+!include $(LIPI_ROOT)\global.winmk
+all: pointfloat
+PointFloat:
+	-@$(MSDEV) pointfloat.dsp /MAKE "pointfloat - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) pointfloat.dsp /MAKE "pointfloat - $(WIN32) $(RELOPT)" /$(CLEAN)
+

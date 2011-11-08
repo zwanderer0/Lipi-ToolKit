@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all :shaperectst
+shaperectst:
+	-@$(MSDEV) shaperectst.dsp /MAKE "shaperectst - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) shaperectst.dsp /MAKE "shaperectst - $(WIN32) $(RELOPT)" /$(CLEAN)

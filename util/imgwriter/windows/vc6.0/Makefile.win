@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: imgwriter
+imgwriter:
+	-@$(MSDEV) $@.dsp /MAKE "imgwriter - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) imgwriter.dsp /MAKE "imgwriter - $(WIN32) $(RELOPT)" /$(CLEAN)

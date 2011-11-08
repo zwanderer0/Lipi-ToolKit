@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: wordpreproc
+wordpreproc:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) wordpreproc.dsp /MAKE "wordpreproc - $(WIN32) $(RELOPT)" /$(CLEAN)

@@ -1,0 +1,46 @@
+include $(LIPI_ROOT)/global.mk
+
+SRC= EigDefFeatureExtractor.cpp \
+     EigDefShapeModel.cpp \
+     EigDefShapeRecognizer.cpp \
+     EigDef.cpp
+
+H=$(SRC:.cpp=.h)
+
+OBJ=$(SRC:.cpp=.o)
+
+TARGET=libeigdef.so
+
+INC=-I../../../include \
+    -I../../../util/lib \
+    -I../../util \
+    -I../common \
+    -I../eigdef \
+    -I../../../lipiengine
+
+LIB= -lutil \
+     -lcommon \
+     -lshaperecommon \
+     -llipiengine 
+
+
+
+LIBDIR= ../../../lib \
+	-L ../../../../lib
+
+TARGETLIB= ../../../../lib
+
+all: ${OBJ} ${SRC}
+	$(CC) $(CPPFLAGS) $(SHFLAGS)-L${LIBDIR} $(LINKLIB) -o ${TARGET} ${OBJ}  -L$(LIBDIR) $(LIB)
+	$(CP) ${TARGET} ${TARGETLIB}
+
+clean:
+	-@$(REMOVE) *.o
+	-@$(REMOVE) ${TARGET}
+	-@$(REMOVE) $(TARGETLIB)/${TARGET}
+
+.cpp.o:${SRC} 
+	$(CC) ${INC} $(CFLAGS) $< -o $@
+
+
+

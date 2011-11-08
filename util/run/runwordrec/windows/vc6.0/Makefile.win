@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all :runwordrec 
+runwordrec:
+	-@$(MSDEV) RunWordrec.dsp /MAKE "RunWordrec - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) RunWordrec.dsp /MAKE "RunWordrec - $(WIN32) $(RELOPT)" /$(CLEAN)

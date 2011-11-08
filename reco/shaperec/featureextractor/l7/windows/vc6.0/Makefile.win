@@ -1,0 +1,7 @@
+!include $(LIPI_ROOT)\global.winmk
+all: l7
+l7:
+	-@$(MSDEV) l7.dsp /MAKE "l7 - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) l7.dsp /MAKE "l7 - $(WIN32) $(RELOPT)" /$(CLEAN)
+

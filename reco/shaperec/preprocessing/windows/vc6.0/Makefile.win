@@ -1,0 +1,10 @@
+!include $(LIPI_ROOT)\global.winmk
+all: preprocessing
+preprocessing:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) preprocessing.dsp /MAKE "preprocessing - $(WIN32) $(RELOPT)" /$(CLEAN)
+
+
+
+

@@ -1,0 +1,40 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="lipiengine"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+<ItemGroup>
+    <StaticLibs Include="common;utils;shapereccommon;wordreccommon"/>
+</ItemGroup>
+<Target Name="lipiengine" 
+        DependsOnTargets="@(StaticLibs)">
+    <VCBuild Projects="$(LIPI_ROOT)\src\lipiengine\windows\wm5.0\lipiengine.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="common" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\common\windows\wm5.0\common.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="utils" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\util\lib\windows\wm5.0\utils.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="shapereccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\common\windows\wm5.0\shapereccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+<Target Name="wordreccommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\wordrec\common\windows\wm5.0\wordreccommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+</Project>

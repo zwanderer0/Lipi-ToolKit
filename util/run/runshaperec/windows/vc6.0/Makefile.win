@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all :runshaperec 
+runshaperec:
+	-@$(MSDEV) RunShaperec.dsp /MAKE "RunShaperec - $(WIN32) $(RELOPT)" /REBUILD
+clean:
+	-@$(MSDEV) RunShaperec.dsp /MAKE "RunShaperec - $(WIN32) $(RELOPT)" /$(CLEAN)

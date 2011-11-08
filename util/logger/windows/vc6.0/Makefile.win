@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: logger
+logger:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) logger.dsp /MAKE "logger - $(WIN32) $(RELOPT)" /$(CLEAN)

@@ -1,0 +1,49 @@
+!include $(LIPI_ROOT)\global.winmk
+all :	shaperec wordrec
+
+###################################################################
+#
+#	SHAPEREC MODULE : $LIPI_ROOT\src\reo\shaperec
+#
+###################################################################
+shaperec : msg
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) 
+	$(CHDIR) $(LIPITK_RECO)
+
+clean-shaperec: msg
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS)  clean
+	$(CHDIR) $(LIPITK_RECO)
+
+###################################################################
+#
+#	WORDREC MODULE : $LIPI_ROOT\src\reo\wordrec
+#
+###################################################################
+wordrec: msg
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) 
+	$(CHDIR) $(LIPITK_RECO)
+
+clean-wordrec: msg
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS)  clean
+	$(CHDIR) $(LIPITK_RECO)
+
+msg:
+	-@echo  Information .. 
+
+clean:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) clean
+	$(CHDIR) $(LIPITK_RECO)
+	$(CHDIR)  $(LIPITK_RECO_WORDREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F)  Makefile.$(OS) clean
+	$(CHDIR) $(LIPITK_RECO)

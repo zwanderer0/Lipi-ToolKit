@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: common
+common:
+	-@$(MSDEV) wordrecocommon.dsp /MAKE "wordrecocommon - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) wordrecocommon.dsp /MAKE "wordrecocommon - $(WIN32) $(RELOPT)" /$(CLEAN)

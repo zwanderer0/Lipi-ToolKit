@@ -1,0 +1,12 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="featureextractorcommon">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>         
+<Target Name="featureextractorcommon" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\reco\shaperec\featureextractor\common\windows\wm5.0\featureextractorcommon.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+</Project>

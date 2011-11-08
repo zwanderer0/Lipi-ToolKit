@@ -1,0 +1,9 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="nn;pointfloat;preproc"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+         <Import Project="$(LIPI_ROOT)\src\reco\shaperec\nn\windows\vc2005\nn.targets" />
+         <Import Project="$(LIPI_ROOT)\src\reco\shaperec\preprocessing\windows\vc2005\preproc.targets" />
+         <Import Project="$(LIPI_ROOT)\src\reco\shaperec\featureextractor\windows\vc2005\featureextractor.targets" />
+</Project>

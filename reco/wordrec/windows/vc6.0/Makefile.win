@@ -1,0 +1,115 @@
+!include $(LIPI_ROOT)\global.winmk
+all :	common boxfld 
+
+###################################################################
+#
+#	 WORDREC COMMON MODULE : $LIPI_ROOT\src\reco\wordrec\common
+#
+###################################################################
+common :msg
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  $@
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) all
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+clean-common:msg
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  common
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+wordpreproc :msg
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  $@
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) all
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+boxfld:msg src-common shapereccommon common
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  $@
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) all
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+
+utils:
+	$(CHDIR) $(LIPITK_RECO)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+imgwriter:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+###################################################################
+#
+#	 SRC COMMON MODULE : $LIPI_ROOT\src\common
+#
+###################################################################
+src-common:
+	$(CHDIR) $(LIPITK_SRC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) common
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+clean-src-common:
+	$(CHDIR) $(LIPITK_SRC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) clean-common
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+###################################################################
+#
+#	SHAPEREC COMMON MODULE : $LIPI_ROOT\src\reco\shaperec\common
+#
+###################################################################
+shapereccommon:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+clean-shapereccommon:
+	$(CHDIR)  $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+clean-utils:
+	$(CHDIR)  $(LIPITK_RECO)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+clean-imgwriter:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+clean-boxfld:msg clean-src-common clean-shapereccommon clean-common
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  boxfld
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+
+msg:
+	-@echo Information ...
+clean:
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  common
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+	$(CHDIR)  boxfld
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean
+	$(CHDIR) $(LIPITK_RECO_WORDREC)
+

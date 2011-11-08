@@ -1,0 +1,17 @@
+!include $(LIPI_ROOT)\global.winmk
+all :samples	 
+
+samples: msg
+	-$(CHDIR) $(LIPITK_APP_SAMPLES)
+	-$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  all
+	-@$(CHDIR) ..
+
+clean:
+	-$(CHDIR) $(LIPITK_APP_SAMPLES)
+	-$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F)  Makefile.$(OS)  clean
+	-@$(CHDIR) ..
+	
+msg:
+	-@echo Information ...

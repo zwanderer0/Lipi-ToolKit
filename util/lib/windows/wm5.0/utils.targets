@@ -1,0 +1,12 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="utils">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>         
+<Target Name="utils" >
+    <VCBuild Projects="$(LIPI_ROOT)\src\util\lib\windows\wm5.0\utils.vcproj"
+             Rebuild="true"
+             Configuration="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)">
+    </VCBuild>
+</Target>
+</Project>

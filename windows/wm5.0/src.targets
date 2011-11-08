@@ -1,0 +1,10 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="lipiengine;nn;pointfloat;preproc;boxfld;utils;logger;IMEApp">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+         <Import Project="$(LIPI_ROOT)\src\lipiengine\windows\wm5.0\lipiengine.targets" />
+         <Import Project="$(LIPI_ROOT)\src\reco\windows\wm5.0\reco.targets" />
+         <Import Project="$(LIPI_ROOT)\src\util\windows\wm5.0\util.targets" />
+         <Import Project="$(LIPI_ROOT)\src\apps\windows\wm5.0\apps.targets" />
+</Project>

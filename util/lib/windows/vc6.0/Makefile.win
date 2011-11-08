@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: utils
+utils:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) utils.dsp /MAKE "utils - $(WIN32) $(RELOPT)" /$(CLEAN)

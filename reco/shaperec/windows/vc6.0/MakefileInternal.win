@@ -1,0 +1,315 @@
+!include $(LIPI_ROOT)\global.winmk
+all :	common featureextractor nnInternal hmm activedtw preprocessing
+
+###################################################################
+#
+#	SHAPEREC COMMON MODULE
+#
+###################################################################
+common: msg  
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F)  Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-common:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+###################################################################
+#
+#	FEATURE EXTRACTOR MODULE
+#
+###################################################################
+
+featureextractor: msg  
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F)  MakefileInternal.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	
+clean-featureextractor:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) MakefileInternal.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+###################################################################
+#
+#	NN MODULE
+#
+# Libraries required by NN module
+#
+#  1. utils.lib : Utility classes : utilslib
+#  2. common.lib : Common data structure classes : src-common
+#  3. featureextractorcommon.lib : FE factory : featureextractorcommon
+#  4. shapereccommon.lib : Utility functions for shape recognizers : common
+#  5. lipiengine.lib : Lipi engine : lipiengine
+######################################################################
+nnInternal: msg utilslib src-common featureextractorcommon shapereccommon lipiengine preprocessing
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) nn
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) MakefileInternal.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-nnInternal: msg clean-src-common clean-utilslib clean-featureextractorcommon clean-shapereccommon clean-lipiengine clean-preprocessing
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) nn
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) MakefileInternal.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	
+
+
+###################################################################
+#
+#	ActiveDTW MODULE
+#
+# Libraries required by NN module
+#
+#  1. utils.lib : Utility classes : utilslib
+#  2. common.lib : Common data structure classes : src-common
+#  3. featureextractorcommon.lib : FE factory : featureextractorcommon
+#  4. shapereccommon.lib : Utility functions for shape recognizers : common
+#  5. lipiengine.lib : Lipi engine : lipiengine
+######################################################################
+activedtw: msg utilslib src-common featureextractorcommon shapereccommon lipiengine preprocessing
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)  $@
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-activedtw: msg clean-src-common clean-utilslib clean-featureextractorcommon clean-shapereccommon clean-lipiengine clean-preprocessing
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) activedtw
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+
+###################################################################
+#
+#	HMM MODULE
+#
+# Libraries required by HMM module
+#
+#  1. utils.lib : Utility classes : utilslib
+#  2. common.lib : Common data structure classes : src-common
+#  3. featureextractorcommon.lib : FE factory : featureextractorcommon
+#  4. shapereccommon.lib : Utility functions for shape recognizers : common
+#  5. lipiengine.lib : Lipi engine : lipiengine
+######################################################################
+hmm: msg utilslib src-common featureextractorcommon shapereccommon lipiengine preprocessing
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)  $@
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-hmm: msg clean-src-common clean-utilslib clean-featureextractorcommon clean-shapereccommon clean-lipiengine clean-preprocessing
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)  hmm
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	
+###########################################################################
+#
+#	PREPROCESSING MODULE
+#
+###########################################################################
+preprocessing: msg lipiengine
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)  $@
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-preprocessing: msg clean-lipiengine
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR)  preprocessing
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+###########################################################################
+#
+#	UTIL MODULE
+#
+###########################################################################
+util:
+	$(CHDIR) $(LIPITK_RECO_UTIL)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-util:
+	$(CHDIR) $(LIPITK_RECO_UTIL)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+######################################################################
+#	BUILD INSTRUCTIONS FOR DEPENDENT MODULES
+######################################################################
+
+#########################################################
+#	utilslib : $LIPI_ROOT\src\util\lib
+#########################################################
+
+utilslib:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) lib
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-utilslib:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) clean-lib
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)	
+
+#########################################################
+#	featureextractorcommon : $LIPI_ROOT\src\reco\shaperec\featureextractor\common
+#########################################################
+
+featureextractorcommon:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) MakefileInternal.$(OS) common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-featureextractorcommon:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) MakefileInternal.$(OS) clean-common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+#########################################################
+#	pointfloat dll : $LIPI_ROOT\src\reco\shaperec\featureextractor\pointfloat
+#########################################################
+
+pointfloatshapefeatureextractor:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) MakefileInternal.$(OS) pointfloat
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-pointfloatshapefeatureextractor:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) MakefileInternal.$(OS) clean-pointfloat
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	
+
+#########################################################
+#	npen dll : $LIPI_ROOT\src\reco\shaperec\featureextractor\npen
+#########################################################
+
+npenshapefeatureextractor:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) MakefileInternal.$(OS) npen
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-npenshapefeatureextractor:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) MakefileInternal.$(OS) clean-npen
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+#########################################################
+#	src-common : $LIPI_ROOT\src\common
+#########################################################
+src-common:
+	$(CHDIR) $(LIPITK_SRC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-src-common:
+	$(CHDIR) $(LIPITK_SRC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) clean-common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+#########################################################
+#	lipiengine : $LIPI_ROOT\src\lipiengine
+#########################################################
+
+lipiengine:
+	$(CHDIR) $(LIPITK_SRC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-lipiengine:
+	$(CHDIR) $(LIPITK_SRC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+#########################################################
+#	shapereccommon : $LIPI_ROOT\src\reco\shaperec\common
+#########################################################
+shapereccommon:
+	$(CHDIR)  $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-shapereccommon:
+	$(CHDIR)  $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) clean-common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+#########################################################
+#	imgwriter : $LIPI_ROOT\src\util\imgwriter
+#########################################################
+
+imgwriter:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+clean-imgwriter:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) $@
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+
+
+msg:
+	-@echo Information ...
+clean:
+	-@echo Making clean.
+	$(CHDIR)  $(LIPITK_RECO_SHAPEREC_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) featureextractor
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) nn
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) MakefileInternal.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) activedtw
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) hmm
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	$(CHDIR) preprocessing
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+

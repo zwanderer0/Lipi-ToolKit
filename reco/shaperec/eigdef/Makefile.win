@@ -1,0 +1,8 @@
+!include $(LIPI_ROOT)\global.winmk
+all: eigdef
+eigdef:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) eigdef.dsp /MAKE "eigdef - $(WIN32) $(RELOPT)" /$(CLEAN)
+
+

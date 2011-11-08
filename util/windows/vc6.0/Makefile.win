@@ -1,0 +1,163 @@
+!include $(LIPI_ROOT)\global.winmk
+all :lib imgwriter mdv run logger featurefilewriter
+
+###################################################################
+#
+#	UTILITY CLASSES: $LIPI_ROOT\src\util\lib
+#
+###################################################################
+lib :msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-lib :msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) lib
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+###################################################################
+#
+#	IMAGE WRITER MODULE : $LIPI_ROOT\src\util\imgwriter
+#
+###################################################################
+imgwriter :msg lipiengine
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-imgwriter :msg clean-lipiengine
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) imgwriter
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+###################################################################
+#
+#	RUN MODULE : $LIPI_ROOT\src\util\run
+#
+###################################################################
+run :msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-run :msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) run
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+###################################################################
+#
+#	LOGGER MODULE : $LIPI_ROOT\src\util\logger
+#
+###################################################################
+logger :msg lib
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-logger :msg 
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) logger
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+	
+###################################################################
+#
+#	MODEL DATA VIEWER MODULE : $LIPI_ROOT\src\util\mdv
+#
+###################################################################
+mdv :msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-mdv :msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) mdv
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+###################################################################
+#
+#	lipiengine : $LIPI_ROOT\src\lipiengine
+#
+###################################################################
+lipiengine : msg 
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) $@
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-lipiengine : msg 
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) $@
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+###################################################################
+#
+#	IMAGE WRITER MODULE : $LIPI_ROOT\src\util\featurefilewriter
+#
+###################################################################
+featurefilewriter :msg 
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS)
+
+clean-featurefilewriter :msg 
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) featurefilewriter
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+	
+msg:
+	-@echo Information ...
+
+clean:
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) imgwriter
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) lib
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) run
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) mdv
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) logger
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+        -@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) featurefilewriter
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+        -@$(CHDIR) $(LIPITK_UTILS)

@@ -1,0 +1,7 @@
+!include $(LIPI_ROOT)\global.winmk
+all: boxfld
+boxfld:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) boxfld.dsp /MAKE "boxfld - $(WIN32) $(RELOPT)" /$(CLEAN)
+

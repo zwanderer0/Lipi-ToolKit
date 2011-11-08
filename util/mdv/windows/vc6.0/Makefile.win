@@ -1,0 +1,9 @@
+!include $(LIPI_ROOT)\global.winmk
+all: mdv
+mdv: info
+	-@msdev $@.dsp /MAKE "$@ - win32 $(RELOPT)" /$(BUILD)
+clean:info
+	-@msdev mdv.dsp /MAKE "mdv - win32 $(RELOPT)" /$(CLEAN)
+info:
+	-@echo "Compiling ..."
+

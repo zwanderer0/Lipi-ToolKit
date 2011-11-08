@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all :	common 
+common:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) common.dsp /MAKE "common - $(WIN32) $(RELOPT)" /$(CLEAN)

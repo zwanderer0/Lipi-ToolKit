@@ -1,0 +1,463 @@
+"DeployProject"
+{
+"VSVersion" = "3:701"
+"ProjectType" = "8:{AB322303-2255-48EF-A496-5904EB18DA55}"
+"IsWebType" = "8:FALSE"
+"ProjectName" = "8:IMESetup"
+"LanguageId" = "3:1033"
+"CodePage" = "3:1252"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
+    "Hierarchy"
+    {
+        "Entry"
+        {
+        "MsmKey" = "8:_06DE97F9A6444F1992CB5F5AFB3EE5B1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1198EBD060CA4043903D077B380CBB80"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_206BD2D811B44CA095F63A4F66086C99"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_30FDF1B9455F40ADB72D5F70C8F70818"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_32C0A09F502F4D6CA1EC817FDC65F9ED"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_35EFFBDC0BCC49D1B3EC3FE28ADEC0F5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_363B7D24DB4C41A5876E699E965DF07B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3DEF30D7B84248A58C582D395C3E1B1C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5D625C48CF3A4D9B97FDE625DB737C63"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B8541C20707F494194DE9EA1E5EE99BA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BDE74D8A10C3421492354BBB4F839537"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EFDB588B3265440992E63C5B448C4564"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+    }
+    "Configurations"
+    {
+        "Debug"
+        {
+        "DisplayName" = "8:Debug"
+        "IsDebugOnly" = "11:TRUE"
+        "IsReleaseOnly" = "11:FALSE"
+        "OutputFilename" = "8:Debug\\IMESetup.cab"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "SignOutput" = "11:FALSE"
+        "CertificateHash" = "8:"
+        "TimeStampServer" = "8:"
+        }
+        "Release"
+        {
+        "DisplayName" = "8:Release"
+        "IsDebugOnly" = "11:FALSE"
+        "IsReleaseOnly" = "11:TRUE"
+        "OutputFilename" = "8:Release\\IMESetup.cab"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "SignOutput" = "11:FALSE"
+        "CertificateHash" = "8:CE88FD6CDE999F44CAB77AE6C8E5A9E65AE6205F"
+        "TimeStampServer" = "8:"
+        }
+    }
+    "Deployable"
+    {
+        "File"
+        {
+            "{BA458234-9B71-4F46-8107-E91156377184}:_06DE97F9A6444F1992CB5F5AFB3EE5B1"
+            {
+            "SourcePath" = "8:..\\bin\\projects\\EnglishLower\\config\\default\\nnEnglishLower.cfg"
+            "TargetName" = "8:nn.cfg"
+            "Tag" = "8:"
+            "Folder" = "8:_17845FFA6E8B4C2B8290318035864EB8"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_1198EBD060CA4043903D077B380CBB80"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\lib\\pointfloat.dll"
+            "TargetName" = "8:pointfloat.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_8E02DBA550B34860BAE7C69BAF372DC1"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_206BD2D811B44CA095F63A4F66086C99"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\lib\\nn.dll"
+            "TargetName" = "8:nn.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_8E02DBA550B34860BAE7C69BAF372DC1"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_30FDF1B9455F40ADB72D5F70C8F70818"
+            {
+            "SourcePath" = "8:..\\bin\\projects\\EnglishLower\\config\\mappingEnglishLower.txt"
+            "TargetName" = "8:mapping.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_EB2D241E4B3848EEBAD06FE147FBD223"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_32C0A09F502F4D6CA1EC817FDC65F9ED"
+            {
+            "SourcePath" = "8:..\\bin\\projects\\EnglishLower\\config\\default\\profile.cfg"
+            "TargetName" = "8:profile.cfg"
+            "Tag" = "8:"
+            "Folder" = "8:_17845FFA6E8B4C2B8290318035864EB8"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_35EFFBDC0BCC49D1B3EC3FE28ADEC0F5"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\lib\\lipiengine.dll"
+            "TargetName" = "8:lipiengine.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_8E02DBA550B34860BAE7C69BAF372DC1"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_363B7D24DB4C41A5876E699E965DF07B"
+            {
+            "SourcePath" = "8:..\\bin\\projects\\EnglishLower\\config\\project.cfg"
+            "TargetName" = "8:project.cfg"
+            "Tag" = "8:"
+            "Folder" = "8:_EB2D241E4B3848EEBAD06FE147FBD223"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_3DEF30D7B84248A58C582D395C3E1B1C"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\lib\\preproc.dll"
+            "TargetName" = "8:preproc.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_8E02DBA550B34860BAE7C69BAF372DC1"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_5D625C48CF3A4D9B97FDE625DB737C63"
+            {
+            "SourcePath" = "8:..\\bin\\projects\\lipiengine.cfg"
+            "TargetName" = "8:lipiengine.cfg"
+            "Tag" = "8:"
+            "Folder" = "8:_13D608AB8C3047F9A7A2589EC7A2709F"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_B8541C20707F494194DE9EA1E5EE99BA"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\lib\\logger.dll"
+            "TargetName" = "8:logger.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_8E02DBA550B34860BAE7C69BAF372DC1"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_BDE74D8A10C3421492354BBB4F839537"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\bin\\IMEApp.exe"
+            "TargetName" = "8:IMEApp.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_6CFB01ED69F04879A4F7CB38C3D3AE3F"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_EFDB588B3265440992E63C5B448C4564"
+            {
+            "SourcePath" = "8:..\\bin\\projects\\EnglishLower\\config\\default\\nnEnglishLower.mdt"
+            "TargetName" = "8:nn.mdt"
+            "Tag" = "8:"
+            "Folder" = "8:_17845FFA6E8B4C2B8290318035864EB8"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+        }
+        "Folder"
+        {
+            "{27CA7284-31D3-408F-812A-1EF9ACCDB822}:_6CFB01ED69F04879A4F7CB38C3D3AE3F"
+            {
+            "Name" = "8:LIPITK"
+            "Condition" = "8:"
+            "Property" = "8:CUSTOMFOLDER1"
+                "Folders"
+                {
+                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_13D608AB8C3047F9A7A2589EC7A2709F"
+                    {
+                    "Name" = "8:projects"
+                    "Condition" = "8:"
+                    "Property" = "8:_D2131ED69B0A499090D9A28AB57310A3"
+                        "Folders"
+                        {
+                            "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_D2C3F494659E4F23A8B574A450D26113"
+                            {
+                            "Name" = "8:EnglishLower"
+                            "Condition" = "8:"
+                            "Property" = "8:_90AF531394194658A7F7B0F14EFCA280"
+                                "Folders"
+                                {
+                                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_EB2D241E4B3848EEBAD06FE147FBD223"
+                                    {
+                                    "Name" = "8:config"
+                                    "Condition" = "8:"
+                                    "Property" = "8:_5A2845A1D5BE4A0CB43EF94C5645ECF8"
+                                        "Folders"
+                                        {
+                                            "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_17845FFA6E8B4C2B8290318035864EB8"
+                                            {
+                                            "Name" = "8:default"
+                                            "Condition" = "8:"
+                                            "Property" = "8:_4ED4E25680474B8FB45019B3DA62E3EC"
+                                                "Folders"
+                                                {
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_8E02DBA550B34860BAE7C69BAF372DC1"
+                    {
+                    "Name" = "8:lib"
+                    "Condition" = "8:"
+                    "Property" = "8:_06BC216D208E4FD18F645141F1CA4F38"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
+            "{F6DFDB62-1DD1-498B-89B7-27BAC542EE5A}:_6E9B131E3A1F47ECAB2C6D11C9EC3636"
+            {
+            "Name" = "8:#1918"
+            "Condition" = "8:"
+            "Property" = "8:%CE15%"
+                "Folders"
+                {
+                }
+            }
+            "{D5B00AC1-E6C3-4CC5-90FF-8E0F53D9E5E0}:_73B697E56B7E4138907373CDC14901B8"
+            {
+            "DefaultLocation" = "8:%InstallDir%"
+            "Name" = "8:#1920"
+            "Condition" = "8:"
+            "Property" = "8:%InstallDir%"
+                "Folders"
+                {
+                }
+            }
+        }
+        "Product"
+        {
+        "Name" = "8:Microsoft Visual Studio"
+        "ProductName" = "8:IMESetup"
+        "Manufacturer" = "8:Default Company Name"
+        "OSVersionMin" = "8:4.0"
+        "OSVersionMax" = "8:5.99"
+        "NoUninstall" = "11:FALSE"
+        "Compress" = "11:FALSE"
+        "CESetupDLL" = "8:"
+        }
+        "ProjectOutput"
+        {
+        }
+        "Registry"
+        {
+            "HKLM"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKCU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKCR"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKPU"
+            {
+                "Keys"
+                {
+                }
+            }
+        }
+        "Shortcut"
+        {
+        }
+    }
+}

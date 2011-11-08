@@ -1,0 +1,60 @@
+!include $(LIPI_ROOT)\global.winmk
+all :	common pointfloat
+
+#######################################################
+#	FEATURE EXTRACTOR COMMON
+#######################################################
+
+common: msg  
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F)  Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+
+clean-common:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+
+#######################################################
+#	POINT FLOAT
+#######################################################
+
+pointfloat: msg srccommon utilslib common
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE_POINTFLOAT)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F)  Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+
+clean-pointfloat:
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE_POINTFLOAT)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+
+
+srccommon: msg 
+	$(CHDIR) $(LIPITK_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F)  Makefile.$(OS) all 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+
+utilslib:
+	$(CHDIR) $(LIPITK_UTILS)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE) $(F) Makefile.$(OS) lib
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+
+msg:
+	-@echo Information ...
+clean:
+	-@echo Making clean.
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE_COMMON)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE_POINTFLOAT)
+	$(CHDIR) $(DSP_LOCATION)
+	$(MAKE)  $(F) Makefile.$(OS) clean 
+	$(CHDIR) $(LIPITK_RECO_SHAPEREC_FE)
+

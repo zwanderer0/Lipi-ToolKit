@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="utils;logger"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+         <Import Project="$(LIPI_ROOT)\src\util\lib\windows\wm5.0\utils.targets" />
+         <Import Project="$(LIPI_ROOT)\src\util\logger\windows\wm5.0\logger.targets" />
+</Project>

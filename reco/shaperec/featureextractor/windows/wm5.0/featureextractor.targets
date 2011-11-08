@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="pointfloat;l7"> 
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+         <Import Project="$(LIPI_ROOT)\src\reco\shaperec\featureextractor\pointfloat\windows\wm5.0\pointfloat.targets" />
+         <Import Project="$(LIPI_ROOT)\src\reco\shaperec\featureextractor\l7\windows\wm5.0\l7.targets" />
+</Project>

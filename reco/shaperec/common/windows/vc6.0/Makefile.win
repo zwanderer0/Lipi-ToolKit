@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all: common
+common:
+	-@$(MSDEV) shapereccommon.dsp /MAKE "shapereccommon - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) shapereccommon.dsp /MAKE "shapereccommon - $(WIN32) $(RELOPT)" /$(CLEAN)

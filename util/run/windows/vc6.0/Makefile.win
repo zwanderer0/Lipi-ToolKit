@@ -1,0 +1,121 @@
+!include $(LIPI_ROOT)\global.winmk
+all :runshaperec runwordrec
+
+###################################################################
+#
+#	RUNSHAPEREC
+#
+###################################################################
+runshaperec:msg common utils shapereccommon 
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+clean-runshaperec:msg clean-common clean-utils  clean-shapereccommon
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+	-@$(CHDIR) runshaperec
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+###################################################################
+#
+#	RUNWORDREC
+#
+###################################################################
+runwordrec:msg common utils wordreccommon
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+	-@$(CHDIR) $@
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) all
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+clean-runwordrec:msg clean-common clean-wordreccommon clean-utils
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+	-@$(CHDIR) runwordrec
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+###################################################################
+#
+#	SRC COMMON
+#
+###################################################################
+common:msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) $@
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+clean-common: msg
+	-@$(CHDIR) $(LIPITK_SRC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  $@
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+###################################################################
+#
+#	UTILITY CLASSES
+#
+###################################################################
+utils:msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) lib
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+clean-utils:msg
+	-@$(CHDIR) $(LIPITK_UTILS)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean-lib
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+###################################################################
+#
+#	WORDREC COMMON
+#
+###################################################################
+wordreccommon:msg
+	-@$(CHDIR) $(LIPITK_RECO_WORDREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) common
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+clean-wordreccommon:msg
+	-@$(CHDIR) $(LIPITK_RECO_WORDREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) common
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+###################################################################
+#
+#	SHAPEREC COMMON
+#
+###################################################################
+shapereccommon:msg
+	-@$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  $@
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+clean-shapereccommon:msg
+	-@$(CHDIR) $(LIPITK_RECO_SHAPEREC)
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS)  $@
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+
+msg:
+	-@echo Information ...
+clean:
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+	-@$(CHDIR) runshaperec
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)
+	-@$(CHDIR) runwordrec
+	-@$(CHDIR) $(DSP_LOCATION)
+	-@$(MAKE) $(F) Makefile.$(OS) clean
+	-@$(CHDIR) $(LIPITK_UTILS_RUN)

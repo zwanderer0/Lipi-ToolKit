@@ -1,0 +1,7 @@
+!include $(LIPI_ROOT)\global.winmk
+all: npen
+npen:
+	-@$(MSDEV) npen.dsp /MAKE "npen - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) npen.dsp /MAKE "npen - $(WIN32) $(RELOPT)" /$(CLEAN)
+

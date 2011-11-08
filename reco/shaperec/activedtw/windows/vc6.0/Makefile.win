@@ -1,0 +1,7 @@
+!include $(LIPI_ROOT)\global.winmk
+all: activedtw
+activedtw:
+	-@$(MSDEV) $@.dsp /MAKE "$@ - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) activedtw.dsp /MAKE "activedtw - $(WIN32) $(RELOPT)" /$(CLEAN)
+

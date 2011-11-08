@@ -1,0 +1,6 @@
+!include $(LIPI_ROOT)\global.winmk
+all :wordrectst
+wordrectst:
+	-@$(MSDEV) wordrectst.dsp /MAKE "wordrectst - $(WIN32) $(RELOPT)" /$(BUILD)
+clean:
+	-@$(MSDEV) wordrectst.dsp /MAKE "wordrectst - $(WIN32) $(RELOPT)" /$(CLEAN)

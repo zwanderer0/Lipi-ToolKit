@@ -1,0 +1,8 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="nnInternal;pointfloat;l7;preproc;boxfld;hmm;npen;activedtw">
+         <PropertyGroup>
+            <LipiRoot>$(LIPI_ROOT)</LipiRoot>
+         </PropertyGroup>
+         <Import Project="$(LIPI_ROOT)\src\reco\shaperec\windows\vc2005\shaperecinternal.targets" />
+         <Import Project="$(LIPI_ROOT)\src\reco\wordrec\windows\vc2005\wordrec.targets" />
+</Project>
